@@ -6,6 +6,7 @@
     <title>Encriptador</title>
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
     <header>
@@ -75,15 +76,17 @@
         <div class="wrapper__result">
           <img src="./assets/img/backgrouns/Muñeco.png" alt="imagen de persona" id="img__person" />
           <div class="mensaje__encrypt">
-            <h2 id="titulo_mensaje">Ningun mensaje fue encontrado</h2>
-            <p id="parrafo_mensaje">
+            <h2 id="titulo__mensaje">Ningun mensaje fue encontrado</h2>
+            <div id="parrafo__mensaje">
               Ingresa el texto que deseas encriptar o desencriptar
-            </p>
+            </div>
+          </div>
+          <div id="button-container">
+
           </div>
         </div>
       </div>
     </main>
   </body>
   <script src="./js/app.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
 </html>
