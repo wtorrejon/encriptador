@@ -84,6 +84,7 @@ body {
 .wrapper__buttons{
     display: flex;
     justify-content: space-between;
+    gap: 16px;
     width: 100%;
     /* border: 1px solid red; */
 }
