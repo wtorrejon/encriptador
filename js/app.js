@@ -16,6 +16,9 @@ function fnCopiar() {
     }else{
         result.select();
         document.execCommand("copy");
+        // navigator.clipboard.readText(text__result);
+        // console.log()
+        // alert("Texto copiado al portapapeles");
     }
 }
 
@@ -65,42 +68,46 @@ function encrypt () {
 
 }
 
-//Funcion que nos servira para encriptar el texto capturado del text area
-// function encrypt(){
-//     let texto = document.getElementById("texto").value;
-//     let mensaje_1 = document.getElementById("titulo__mensaje");
-//     let mensaje_2 = document.getElementById("parrafo__mensaje");
-//     let imagen = document.getElementById("img__person");
-//     let flex = document.querySelector("wrapper__result");
+/* ------- Funcion para desencriptar el texto------- */
 
-//     let encrypt__text= texto
-//     .replace(/e/gi, "enter")
-//     .replace(/i/gi, "imes")
-//     .replace(/a/gi, "ai")
-//     .replace(/o/gi, "ober")
-//     .replace(/u/gi, "ufat");
+function decrypt(){
+    let texto = text__Encrypt.value;
+    let validation__txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "");
 
-//     console.log(encrypt__text);
-//     const buttonContainer = document.getElementById('button-container');
-//         const button = document.createElement('button');
-//         button.textContent = 'Copiar';
-//         button.type = 'button';
-//         button.className = 'btn__copiar';
-//         buttonContainer.appendChild(button);
+    if (texto == ""){
+        conditionText.style.color = "red";
+        conditionText.style.fontWeight = "800";
+        conditionText.innerHTML = "El campo no puede estar vacio";
 
-//     if (texto.length != 0) {
-//         document.getElementById("parrafo__mensaje").value = encrypt__text;
-//         mensaje_1.textContent = "Texto encriptado con éxito";
-//         mensaje_2.textContent = encrypt__text;
-//         mensaje_2.className += "text__encrypt"
-//         imagen.className += "hidden";
-        
-//     }else{
-//         imagen.src = "./assets/img/backgrouns/Muñeco.png";
-//         mensaje_1.textContent = "Ningún mensaje fue encontrado";
-//         mensaje_2.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-//         swal("Ooops!", "No hay ningun texto que encriptar", "warning");
-//     }
-    
-// }
-//Funcion que nos servira para desencriptar el texto capturado del text area
+        setTimeout(()=>{
+            conditionText.removeAttribute ("style");
+        },1500);
+    }
+    else if (validation__txt != texto){
+        conditionText.style.background = "#0A3871";
+        conditionText.style.color = "#FFFF";
+        conditionText.style.fontWeight = "800";
+        conditionText.textContent = "No debe tener acentos y caracteres especiales";
+
+        setTimeout(()=>{
+            conditionText.removeAttribute ("style");
+        },1500);
+    }
+    else if (texto !== texto.toLowerCase()) {
+        conditionText.style.background = "#0A3871";
+        conditionText.style.color = "#FFFF";
+        conditionText.style.fontWeight = "800";
+        conditionText.textContent = "El texto debe ser todo en minúscula";
+    }
+    else {
+        texto = texto.replace(/enter/mg, "e");
+        texto = texto.replace(/imes/mg, "i");
+        texto = texto.replace(/ai/mg, "a");
+        texto = texto.replace(/ober/mg, "o");
+        texto = texto.replace(/ufat/mg, "u");
+    }
+
+    result.innerHTML = texto;
+    btnCopiar.style.visibility = "inherit";
+    containerCard.remove();
+}
