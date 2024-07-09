@@ -72,7 +72,6 @@ main{
     flex-grow: 0;
     width: auto;
     height: fit-content;
-    border: 1px dashed red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -168,7 +167,6 @@ main{
     max-width: 400px;
     min-width: 200px;
     height: 100%;
-    border: 1px solid red;
 }
 .container__result{
     display: flex;
