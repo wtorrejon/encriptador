@@ -16,7 +16,9 @@
     --gray-500: #343A40;
     --gray-400: #495057;
     --gray-100: #CED4DA;
-    --blanco: white
+    --blanco: white;
+    --Gree:#495057;
+
 }
 /* ----------------------------------------- */
 .hidden{
@@ -51,26 +53,32 @@ main{
     width: 100%;
 }
 .hero{
-    display: flex;
-    flex-direction: row;
-    gap: 80px;
+
+    display: grid;
+    gap: 2rem;
+    grid-auto-rows: 100vh;
+    grid-template-columns: repeat(auto-fill, minmax(680px, 1fr));
     background-color: var(--ligth-blue-100);
-    border: 1px solid red;
     margin-right: 40px;
+    border: 1px solid blue;
 }
 /* ====================================== */
 /* =======   SECCION ENCRIPTADO  ======== */
 /* ====================================== */
 .wrapper__Text{
-    width: 60%;
-    height: 480px;
+    max-width: 680px;
+    min-width: 350px;
+    height: auto;
     margin-top: 168px;
+    margin-bottom: 40px;
     margin-left: 180px;
     border: 1px dashed red;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .texto{
+    height: 675px;
     font-weight: 400;
     font-size: 32px;
     outline: none;
@@ -136,8 +144,10 @@ main{
 .btn__copiar{
     width: 300px;
     height: 67px;
+    margin: 10px;
     border-radius: 24px;
     font-size: 16px;
+    visibility: hidden;
 }
 .btn__copiar:hover{
     background-color: var(--dark-blue-200);
@@ -152,16 +162,51 @@ main{
 
 .wrapper__result{
     max-width: 400px;
+    min-width: 200px;
     height: 100%;
+    /* border: 1px solid red; */
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: var(--blanco);
-    box-shadow: 10px 24px 32px -8px var(--gray-500);
-    position: relative;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    border-radius: 32px;
+}
+.container__result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background-color: var(--blanco);
+    height: 100%;
+    width: auto;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0px 20px 29px -5px var(--gray-100); 
+}
+.titulo__mensaje {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-500);
+}
+#parrafo__mensaje{
+    font-size: 0.8rem;
+    color: var(--gray-400);
+}
+.wrapper__decrypt{
+    display: none;
+}
+.result{
+    width: 100%;
+    height: 485px;
+    padding: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: var(--Gree);
+    background: transparent;
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+    border: none;
+    resize: none;
+    visibility: hidden;
 }
 
 
@@ -176,10 +221,6 @@ footer{
     background-color: var(--gray-100);
     height: 80px;
     width: 100%;
-    border: 1px solid blue;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 footer p{
     color: var(--dark-blue-300);

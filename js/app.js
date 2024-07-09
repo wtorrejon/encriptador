@@ -6,6 +6,9 @@ const containerCard = document.getElementById("container__card");
 const btnCopiar = document.querySelector(".btn__copiar");
 const result = document.getElementById("result");
 const text__result = result.value;
+const tituloMensaje = document.getElementById("titulo__mensaje");
+const parrafoMensaje = document.getElementById("parrafo__mensaje");
+const wrapperDecrypt = document.querySelector(".wrapper__decrypt");
 
 /* ------- Funcion para el boton copiar ------- */
 function fnCopiar() {
@@ -43,35 +46,68 @@ function encrypt() {
     conditionText.style.color = "red";
     conditionText.style.fontWeight = "800";
     conditionText.innerHTML = "El campo no puede estar vacio";
+    tituloMensaje.innerHTML = "No se pudo encriptar el mensaje";
+    parrafoMensaje.innerHTML = "El campo no puede estar vacio";
+    parrafoMensaje.style.color = "red"
 
+    //Regresando los valores y atributos a su estado inicial
     setTimeout(() => {
       conditionText.removeAttribute("style");
+      conditionText.innerHTML = "Solo letras minúsculas y sin acentos.";
+      parrafoMensaje.removeAttribute("style");
+      tituloMensaje.innerHTML = "Ningun mensaje fue encontrado";
+      parrafoMensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
     }, 1500);
+
   } else if (validation__txt != texto) {
-    conditionText.style.background = "#0A3871";
-    conditionText.style.color = "#FFFF";
+    conditionText.style.color = "red";
     conditionText.style.fontWeight = "800";
     conditionText.textContent = "No debe tener acentos y caracteres especiales";
+    tituloMensaje.innerHTML = "No se pudo encriptar el mensaje";
+    parrafoMensaje.innerHTML = "No debe tener acentos, ni caracteres especiales";
+    parrafoMensaje.style.color = "red";
 
+    //Regresando los valores y atributos a su estado inicial
     setTimeout(() => {
-      conditionText.removeAttribute("style");
+        conditionText.removeAttribute("style");
+        conditionText.innerHTML = "Solo letras minúsculas y sin acentos.";
+        parrafoMensaje.removeAttribute("style");
+        tituloMensaje.innerHTML = "Ningun mensaje fue encontrado";
+        parrafoMensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
     }, 1500);
+
   } else if (texto !== texto.toLowerCase()) {
-    conditionText.style.background = "#0A3871";
-    conditionText.style.color = "#FFFF";
+    conditionText.style.color = "red";
     conditionText.style.fontWeight = "800";
     conditionText.textContent = "El texto debe ser todo en minúscula";
+    tituloMensaje.innerHTML = "No se pudo encriptar el mensaje";
+    parrafoMensaje.innerHTML = "Coloque el texto solo en letras en minusculas";
+    parrafoMensaje.style.color = "red";
+
+    //Regresando los valores y atributos a su estado inicial
+    setTimeout(() => {
+        conditionText.removeAttribute("style");
+        conditionText.innerHTML = "Solo letras minúsculas y sin acentos.";
+        parrafoMensaje.removeAttribute("style");
+        tituloMensaje.innerHTML = "Ningun mensaje fue encontrado";
+        parrafoMensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
+    }, 1500);
+
   } else {
     texto = texto.replace(/e/gm, "enter");
     texto = texto.replace(/i/gm, "imes");
     texto = texto.replace(/a/gm, "ai");
     texto = texto.replace(/o/gm, "ober");
     texto = texto.replace(/u/gm, "ufat");
+    
+    result.innerHTML = texto;
+    btnCopiar.style.visibility = "inherit";
+    result.style.visibility = "inherit";
+    containerCard.remove();
+    wrapperDecrypt.style.display = "block";
+
   }
 
-  result.innerHTML = texto;
-  btnCopiar.style.visibility = "inherit";
-  containerCard.remove();
 }
 
 /* ------- Funcion para desencriptar el texto------- */
@@ -86,33 +122,62 @@ function decrypt() {
     conditionText.style.color = "red";
     conditionText.style.fontWeight = "800";
     conditionText.innerHTML = "El campo no puede estar vacio";
+    tituloMensaje.innerHTML = "No se pudo Desencriptar el mensaje";
+    parrafoMensaje.innerHTML = "El campo no puede estar vacio";
+    parrafoMensaje.style.color = "red"
 
+    //Regresando los valores y atributos a su estado inicial
     setTimeout(() => {
       conditionText.removeAttribute("style");
+      conditionText.innerHTML = "Solo letras minúsculas y sin acentos.";
+      parrafoMensaje.removeAttribute("style");
+      tituloMensaje.innerHTML = "Ningun mensaje fue encontrado";
+      parrafoMensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
     }, 1500);
   } else if (validation__txt != texto) {
-    conditionText.style.background = "#0A3871";
-    conditionText.style.color = "#FFFF";
+    conditionText.style.color = "red";
     conditionText.style.fontWeight = "800";
     conditionText.textContent = "No debe tener acentos y caracteres especiales";
+    tituloMensaje.innerHTML = "No se pudo Desencriptar el mensaje";
+    parrafoMensaje.innerHTML = "No debe tener acentos, ni caracteres especiales";
+    parrafoMensaje.style.color = "red";
 
+    //Regresando los valores y atributos a su estado inicial
     setTimeout(() => {
-      conditionText.removeAttribute("style");
+        conditionText.removeAttribute("style");
+        conditionText.innerHTML = "Solo letras minúsculas y sin acentos.";
+        parrafoMensaje.removeAttribute("style");
+        tituloMensaje.innerHTML = "Ningun mensaje fue encontrado";
+        parrafoMensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
     }, 1500);
+
   } else if (texto !== texto.toLowerCase()) {
-    conditionText.style.background = "#0A3871";
-    conditionText.style.color = "#FFFF";
+    conditionText.style.color = "red";
     conditionText.style.fontWeight = "800";
     conditionText.textContent = "El texto debe ser todo en minúscula";
+    tituloMensaje.innerHTML = "No se pudo Desencriptar el mensaje";
+    parrafoMensaje.innerHTML = "Coloque el texto solo en letras en minusculas";
+    parrafoMensaje.style.color = "red";
+
+    //Regresando los valores y atributos a su estado inicial
+    setTimeout(() => {
+        conditionText.removeAttribute("style");
+        conditionText.innerHTML = "Solo letras minúsculas y sin acentos.";
+        parrafoMensaje.removeAttribute("style");
+        tituloMensaje.innerHTML = "Ningun mensaje fue encontrado";
+        parrafoMensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
+    }, 1500);
   } else {
     texto = texto.replace(/enter/gm, "e");
     texto = texto.replace(/imes/gm, "i");
     texto = texto.replace(/ai/gm, "a");
     texto = texto.replace(/ober/gm, "o");
     texto = texto.replace(/ufat/gm, "u");
+    result.innerHTML = texto;
+    btnCopiar.style.visibility = "inherit";
+    result.style.visibility = "inherit";
+    containerCard.remove();
+    wrapperDecrypt.style.display = "block";
   }
 
-  result.innerHTML = texto;
-  btnCopiar.style.visibility = "inherit";
-  containerCard.remove();
 }

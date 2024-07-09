@@ -37,7 +37,6 @@
 
     <main>
       <div class="hero">
-
         <section class="wrapper__Text">
           <textarea
             name="texto"
@@ -85,29 +84,36 @@
           </div>
         </section>
         <section class="wrapper__result">
-          <div class="container__card" id="container__card">
-            <img
-              src="./assets/img/backgrouns/Muñeco.png"
-              alt="imagen de persona"
-              id="img__person"
-            />
-            <p class="titulo__mensaje">Ningun mensaje fue encontrado</p>
-            <p id="parrafo__mensaje">
-              Ingresa el texto que deseas encriptar o desencriptar
-            </p>
-          </div>
-          <textarea
-            type="mensaje"
-            class="result"
-            name="result"
-            id="result"
-          ></textarea>
-          <input
-            type="submit"
-            class="btn__copiar"
-            value="Copiar"
-            onclick="fnCopiar()"
-          />
+          <div class="container__result">
+            <div class="container__card" id="container__card">
+              <img
+                src="./assets/img/backgrouns/Muñeco.png"
+                alt="imagen de persona"
+                id="img__person"
+              />
+              <p class="titulo__mensaje" id="titulo__mensaje">
+                Ningun mensaje fue encontrado
+              </p>
+              <p id="parrafo__mensaje">
+                Ingresa el texto que deseas encriptar o desencriptar
+              </p>
+            </div>
+            <div class="wrapper__decrypt">
+              <textarea
+                type="mensaje"
+                class="result"
+                name="result"
+                id="result"
+              ></textarea>
+              <input
+                type="submit"
+                class="btn__copiar"
+                value="Copiar"
+                onclick="fnCopiar()"
+              />
+            </div>
+
+            </div>
         </section>
       </div>
     </main>
